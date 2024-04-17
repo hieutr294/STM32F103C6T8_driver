@@ -222,6 +222,46 @@ typedef struct{
 	uint32_t DMAR;
 }TIMER_RegDef_t;
 
+typedef struct{
+	uint32_t CR1;
+	uint32_t CR2;
+	uint32_t OAR1;
+	uint32_t OAR2;
+	uint32_t DR;
+	struct{
+		uint32_t SB:1;
+		uint32_t ADDR:1;
+		uint32_t BTF:1;
+		uint32_t ADD10:1;
+		uint32_t STOPF:1;
+		uint32_t res:1;
+		uint32_t RxNE:1;
+		uint32_t TxE:1;
+		uint32_t BERR:1;
+		uint32_t ARLO:1;
+		uint32_t AF:1;
+		uint32_t OVR:1;
+		uint32_t PECERR:1;
+		uint32_t res1:1;
+		uint32_t TIMEOUT:1;
+		uint32_t SMBALERT:1;
+	}SR1;
+	struct{
+		uint32_t MSL:1;
+		uint32_t BUSY:1;
+		uint32_t TRA:1;
+		uint32_t res:1;
+		uint32_t GENCALL:1;
+		uint32_t SMBDEFAULT:1;
+		uint32_t SMBHOST:1;
+		uint32_t DUALF:1;
+		uint32_t PEC:8;
+	}SR2;
+	uint32_t CCR;
+	uint32_t TRISE;
+
+}I2C_RegDef_t;
+
 /*--------------------------Peripheral Define----------------------------*/
 
 #define GPIOA 				((GPIO_RegDef_t*)(GPIOA_BASE_ADDRESS))
@@ -248,6 +288,9 @@ typedef struct{
 #define ADC3				((ADC_RegDef_t*)(ADC3_BASE_ADDRESS))
 #define DMA1				((DMA_RegDef_t*)(DMA1_BASE_ADDRESS))
 #define DMA2				((DMA_RegDef_t*)(DMA2_BASE_ADDRESS))
+#define I2C1				((I2C_RegDef_t*)(I2C1_BASE_ADDRESS))
+#define I2C2				((I2C_RegDef_t*)(I2C2_BASE_ADDRESS))
+
 
 #define TIM1				((TIMER_RegDef_t*)(TIM1_BASE_ADDRESS))
 #define TIM8				((TIMER_RegDef_t*)(TIM8_BASE_ADDRESS))
